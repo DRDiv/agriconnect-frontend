@@ -50,4 +50,11 @@ final ThemeData agriculturalTheme = ThemeData(
     ),
     labelStyle: TextStyle(color: ColorScheme.primary),
   ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+    elevation: 4.0,
+    backgroundColor: Color.fromARGB(255, 141, 219, 144),
+    foregroundColor: Colors.white,
+    shadowColor: Colors.green[800], // Adjust shadow color to fit your design
+  )),
 );
