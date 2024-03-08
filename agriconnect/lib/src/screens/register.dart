@@ -19,9 +19,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
     return Scaffold(
-        appBar: AppBar(title: Text('Register as Farmer')),
-        body: Center(
-          child: Form(
+        body: Stack(children: [
+      Image.asset(
+        'assets/image.png', // Replace with the path to your image
+        fit: BoxFit.fill,
+        width: double.infinity,
+        height: double.infinity,
+      ),
+      Center(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Form(
             child: SizedBox(
               width: width * 0.8,
               child: Column(
@@ -30,26 +37,40 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     decoration: InputDecoration(labelText: "Name"),
                     controller: _textEditingControllerName,
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
                     decoration:
                         InputDecoration(labelText: "Aadhar Card number"),
                     controller: _textEditingControllerAadhar,
                   ),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   TextFormField(
                     decoration: InputDecoration(labelText: "Create password"),
                     controller: _textEditingControllerPassword,
                   ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.symmetric(vertical: 4),
-                    child: SizedBox(
-                        width: width * 0.75,
-                        child: ElevatedButton(
-                            onPressed: () {}, child: const Text("Confirm"))),
-                  )
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                      width: width * 0.75,
+                      child: ElevatedButton(
+                          onPressed: () {}, child: const Text("Confirm"))),
+                  TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Already Registered? Click Here',
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ))
                 ],
               ),
             ),
           ),
-        ));
+        ]),
+      ),
+    ]));
   }
 }

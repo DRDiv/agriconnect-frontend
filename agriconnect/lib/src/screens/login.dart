@@ -9,6 +9,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _textEditingControllerUserID =
+      TextEditingController();
+  final TextEditingController _textEditingControllerPassword =
+      TextEditingController();
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
@@ -27,21 +31,30 @@ class _LoginScreenState extends State<LoginScreen> {
             Form(
                 child: Center(
               child: SizedBox(
-                width: width * 0.6,
+                width: width * 0.8,
                 child: Column(children: [
                   TextFormField(
-                      decoration: InputDecoration(
-                          labelText: "User ID",
-                          labelStyle:
-                              (Theme.of(context).textTheme.bodyMedium))),
-                  SizedBox(
+                    decoration: InputDecoration(
+                        labelText: "User ID",
+                        labelStyle: (Theme.of(context).textTheme.bodyMedium)),
+                    controller: _textEditingControllerUserID,
+                  ),
+                  const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
                     decoration: InputDecoration(
                         labelText: "Password",
                         labelStyle: (Theme.of(context).textTheme.bodyMedium)),
-                  )
+                    controller: _textEditingControllerPassword,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                      width: width * 0.75,
+                      child: ElevatedButton(
+                          onPressed: () {}, child: const Text("Confirm"))),
                 ]),
               ),
             )),
