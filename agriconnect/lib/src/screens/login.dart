@@ -10,6 +10,32 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    final double width = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('AgriConnect'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Form(
+              child: Center(
+            child: SizedBox(
+              width: width * 0.6,
+              child: Column(children: [
+                TextFormField(
+                  decoration: InputDecoration(
+                    labelText: "User ID",
+                  ),
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: "Password"),
+                )
+              ]),
+            ),
+          ))
+        ],
+      ),
+    );
   }
 }
