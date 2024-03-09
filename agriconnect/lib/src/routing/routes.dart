@@ -6,7 +6,7 @@ import 'package:agriconnect/src/screens/register.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-GoRouter goRouter = GoRouter(initialLocation: "/register", routes: [
+GoRouter goRouter = GoRouter(initialLocation: "/login", routes: [
   GoRoute(
     path: "/",
     pageBuilder: (context, state) {

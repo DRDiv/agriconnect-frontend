@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -20,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Stack(children: [
         Image.asset(
-          'assets/image.png', // Replace with the path to your image
+          'assets/image.png',
           fit: BoxFit.fill,
           width: double.infinity,
           height: double.infinity,
@@ -59,10 +60,15 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             )),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  context.push("/register");
+                },
                 child: Text(
                   'Not Registered? Click Here',
-                  style: Theme.of(context).textTheme.bodySmall,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodySmall!
+                      .copyWith(color: Colors.white),
                 ))
           ],
         ),

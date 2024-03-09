@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ColorScheme {
+class ColorSchemes {
   static Color primary = Color(0xff3A5A40);
   static Color secondary = Color(0xff588157);
   static Color tertiary = Color(0xffA3B18A);
@@ -8,53 +8,57 @@ class ColorScheme {
 }
 
 final ThemeData agriculturalTheme = ThemeData(
-  brightness: Brightness.light,
-  primaryColor: ColorScheme.primary,
-  fontFamily: 'Nunito',
-  appBarTheme: AppBarTheme(
-    backgroundColor: Colors.transparent,
-    centerTitle: true,
-    titleTextStyle: TextStyle(
-      color: Colors.white,
-      fontSize: 20.0,
-      fontWeight: FontWeight.bold,
+    brightness: Brightness.light,
+    primaryColor: ColorSchemes.primary,
+    fontFamily: 'Nunito',
+    appBarTheme: const AppBarTheme(
+      backgroundColor: Colors.transparent,
+      centerTitle: true,
+      titleTextStyle: TextStyle(
+        color: Colors.white,
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+      ),
     ),
-  ),
-  textTheme: TextTheme(
-    bodyLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-    bodyMedium: TextStyle(fontSize: 18.0, fontStyle: FontStyle.italic),
-    bodySmall: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
-  ),
-  buttonTheme: ButtonThemeData(
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-    buttonColor: Color(0xFF4CAF50), // Green
-    textTheme: ButtonTextTheme.primary,
-  ),
-  inputDecorationTheme: InputDecorationTheme(
-    filled: true,
-    fillColor: ColorScheme.background,
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(10.0),
+    textTheme: TextTheme(
+      bodyLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+      bodyMedium: TextStyle(fontSize: 18.0, fontStyle: FontStyle.italic),
+      bodySmall: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
     ),
-    focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: ColorScheme.primary),
-      borderRadius: BorderRadius.circular(10.0),
+    buttonTheme: ButtonThemeData(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+      buttonColor: Color(0xFF4CAF50), // Green
+      textTheme: ButtonTextTheme.primary,
     ),
-    errorBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.red),
-      borderRadius: BorderRadius.circular(10.0),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      fillColor: ColorSchemes.background,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: ColorSchemes.primary),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.red),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.red),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      labelStyle: TextStyle(color: ColorSchemes.primary),
     ),
-    focusedErrorBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.red),
-      borderRadius: BorderRadius.circular(10.0),
-    ),
-    labelStyle: TextStyle(color: ColorScheme.primary),
-  ),
-  elevatedButtonTheme: ElevatedButtonThemeData(
+    elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-    elevation: 4.0,
-    backgroundColor: Color.fromARGB(255, 141, 219, 144),
-    foregroundColor: Colors.white,
-    shadowColor: Colors.green[800], // Adjust shadow color to fit your design
-  )),
-);
+        foregroundColor: Colors.white, backgroundColor: Color(0xFF4CAF50),
+        elevation: 8.0, // Increase the elevation for a more pronounced shadow
+        padding: EdgeInsets.symmetric(
+            vertical: 8.0,
+            horizontal: 16.0), // Adjust padding for better spacing
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ), // Text color on the button
+      ),
+    ));
