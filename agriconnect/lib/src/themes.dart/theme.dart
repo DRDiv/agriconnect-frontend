@@ -52,9 +52,10 @@ final ThemeData agriculturalTheme = ThemeData(
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-    elevation: 4.0,
-    backgroundColor: Color.fromARGB(255, 141, 219, 144),
-    foregroundColor: Colors.white,
-    shadowColor: Colors.green[800], // Adjust shadow color to fit your design
-  )),
+          elevation: 3.0,
+          backgroundColor: Color.fromARGB(255, 11, 53, 13),
+          foregroundColor: Color(0xffDAD7CD),
+          shadowColor: Colors.green[800],
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)))),
 );
