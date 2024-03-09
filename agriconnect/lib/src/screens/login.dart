@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Stack(children: [
         Image.asset(
-          'assets/image.png', // Replace with the path to your image
+          'assets/image_1.png', // Replace with the path to your image
           fit: BoxFit.fill,
           width: double.infinity,
           height: double.infinity,

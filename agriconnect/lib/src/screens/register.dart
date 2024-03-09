@@ -21,7 +21,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
         body: Stack(children: [
       Image.asset(
-        'assets/image.png', // Replace with the path to your image
+        'assets/image_1.png', // Replace with the path to your image
         fit: BoxFit.fill,
         width: double.infinity,
         height: double.infinity,
@@ -34,22 +34,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Column(
                 children: [
                   TextFormField(
-                    decoration: InputDecoration(labelText: "Name"),
+                    decoration: InputDecoration(
+                        labelText: "Name",
+                        labelStyle: (Theme.of(context).textTheme.bodyMedium)),
                     controller: _textEditingControllerName,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
-                    decoration:
-                        InputDecoration(labelText: "Aadhar Card number"),
+                    decoration: InputDecoration(
+                        labelText: "Aadhar Card number",
+                        labelStyle: (Theme.of(context).textTheme.bodyMedium)),
                     controller: _textEditingControllerAadhar,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   TextFormField(
-                    decoration: InputDecoration(labelText: "Create password"),
+                    decoration: InputDecoration(
+                        labelText: "Create password",
+                        labelStyle: (Theme.of(context).textTheme.bodyMedium)),
                     controller: _textEditingControllerPassword,
                   ),
                   const SizedBox(
