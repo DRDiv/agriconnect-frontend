@@ -8,57 +8,53 @@ class ColorSchemes {
 }
 
 final ThemeData agriculturalTheme = ThemeData(
-    brightness: Brightness.light,
-    primaryColor: ColorSchemes.primary,
-    fontFamily: 'Nunito',
-    appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.transparent,
-      centerTitle: true,
-      titleTextStyle: TextStyle(
-        color: Colors.white,
-        fontSize: 20.0,
-        fontWeight: FontWeight.bold,
-      ),
+  brightness: Brightness.light,
+  primaryColor: ColorSchemes.primary,
+  fontFamily: 'Nunito',
+  appBarTheme: const AppBarTheme(
+    backgroundColor: Colors.transparent,
+    centerTitle: true,
+    titleTextStyle: TextStyle(
+      color: Colors.white,
+      fontSize: 20.0,
+      fontWeight: FontWeight.bold,
     ),
-    textTheme: TextTheme(
-      bodyLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-      bodyMedium: TextStyle(fontSize: 18.0, fontStyle: FontStyle.italic),
-      bodySmall: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+  ),
+  textTheme: TextTheme(
+    bodyLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+    bodyMedium: TextStyle(fontSize: 18.0, fontStyle: FontStyle.italic),
+    bodySmall: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+  ),
+  buttonTheme: ButtonThemeData(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+    buttonColor: Color(0xFF4CAF50), // Green
+    textTheme: ButtonTextTheme.primary,
+  ),
+  inputDecorationTheme: InputDecorationTheme(
+    filled: true,
+    fillColor: ColorSchemes.background,
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10.0),
     ),
-    buttonTheme: ButtonThemeData(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-      buttonColor: Color(0xFF4CAF50), // Green
-      textTheme: ButtonTextTheme.primary,
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: ColorSchemes.primary),
+      borderRadius: BorderRadius.circular(10.0),
     ),
-    inputDecorationTheme: InputDecorationTheme(
-      filled: true,
-      fillColor: ColorSchemes.background,
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: ColorSchemes.primary),
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      errorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.red),
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      focusedErrorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.red),
-        borderRadius: BorderRadius.circular(10.0),
-      ),
-      labelStyle: TextStyle(color: ColorSchemes.primary),
+    errorBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.red),
+      borderRadius: BorderRadius.circular(10.0),
     ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
+    focusedErrorBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.red),
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    labelStyle: TextStyle(color: ColorSchemes.primary),
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white, backgroundColor: Color(0xFF4CAF50),
-        elevation: 8.0, // Increase the elevation for a more pronounced shadow
-        padding: EdgeInsets.symmetric(
-            vertical: 8.0,
-            horizontal: 16.0), // Adjust padding for better spacing
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
-        ), // Text color on the button
-      ),
-    ));
+          foregroundColor: Colors.white,
+          backgroundColor: ColorSchemes.primary,
+          elevation: 8.0,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)))),
+);

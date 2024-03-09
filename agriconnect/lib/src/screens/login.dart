@@ -1,3 +1,5 @@
+import 'package:agriconnect/src/constants/urls.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
@@ -21,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Stack(children: [
         Image.asset(
-          'assets/image.png',
+          'assets/image_1.png', // Replace with the path to your image
           fit: BoxFit.fill,
           width: double.infinity,
           height: double.infinity,
@@ -55,7 +57,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                       width: width * 0.75,
                       child: ElevatedButton(
-                          onPressed: () {}, child: const Text("Confirm"))),
+                          onPressed: () {
+                            Dio dio = Dio();
+                            Map<String, dynamic> requestData = {
+                              'username': 'hello',
+                            };
+                            print(Urls.createPerson);
+                            dio.post(Urls.createPerson, data: requestData);
+                          },
+                          child: const Text("Confirm"))),
                 ]),
               ),
             )),

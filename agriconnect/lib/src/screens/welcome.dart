@@ -1,11 +1,22 @@
+import 'dart:async';
+import 'dart:ui';
+
+import 'package:agriconnect/src/routing/routes.dart';
 import 'package:agriconnect/src/themes.dart/theme.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key});
 
+  void init() async {
+    await Future.delayed(Duration(seconds: 3));
+
+    goRouter.go("/login");
+  }
+
   @override
   Widget build(BuildContext context) {
+    init();
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -26,18 +37,19 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   Image.asset(
                     "assets/logo.png",
-                    width: 150.0,
+                    width: 200.0,
                   ),
                   SizedBox(height: 10.0),
                   Text(
                     'AgriConnect',
-                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                         color: ColorSchemes.primary,
-                        fontWeight: FontWeight.bold),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 30),
                   ),
                 ],
               ),
-              SizedBox(height: 70.0),
+              SizedBox(height: 50.0),
               Container(
                 width: 50.0, // Set the desired width
                 height: 50.0, // Set the desired height
