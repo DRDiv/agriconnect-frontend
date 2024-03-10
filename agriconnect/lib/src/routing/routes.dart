@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:agriconnect/src/screens/authority.dart';
 import 'package:agriconnect/src/screens/choice.dart';
 import 'package:agriconnect/src/screens/farmer.dart';
