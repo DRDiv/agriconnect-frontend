@@ -1,12 +1,11 @@
 import 'dart:ui';
-
 import 'package:agriconnect/src/screens/login.dart';
 import 'package:agriconnect/src/screens/welcome.dart';
 import 'package:agriconnect/src/screens/register.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-GoRouter goRouter = GoRouter(initialLocation: "/", routes: [
+GoRouter goRouter = GoRouter(initialLocation: "/welcome", routes: [
   GoRoute(
     path: "/",
     pageBuilder: (context, state) {

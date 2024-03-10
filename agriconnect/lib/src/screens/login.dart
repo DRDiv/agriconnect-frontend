@@ -1,3 +1,4 @@
+import 'package:agriconnect/src/components/bottomnav.dart';
 import 'package:agriconnect/src/constants/urls.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -83,6 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ],
         ),
       ]),
+      bottomNavigationBar: BottomNav(),
     );
   }
 }
