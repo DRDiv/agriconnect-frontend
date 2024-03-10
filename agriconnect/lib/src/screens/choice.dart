@@ -20,7 +20,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
         padding: EdgeInsets.all(16.0),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/image_2.png'),
+            image: AssetImage('assets/image_3.png'),
             fit: BoxFit.cover,
           ),
         ),
