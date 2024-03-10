@@ -1,3 +1,4 @@
+import 'package:agriconnect/src/components/allotres.dart';
 import 'package:agriconnect/src/components/bottomnav.dart';
 import 'package:agriconnect/src/components/resourcestable.dart';
 import 'package:agriconnect/src/constants/urls.dart';
@@ -231,7 +232,14 @@ class _AuthorityScreenState extends State<AuthorityScreen> {
               SizedBox(
                 width: width * 0.7,
                 child: ElevatedButton(
-                    onPressed: () {}, child: const Text("Allot resources")),
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AllotResourcesAlertDialog();
+                          });
+                    },
+                    child: const Text("Allot resources")),
               )
             ],
           ),
