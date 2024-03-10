@@ -3,41 +3,53 @@ import 'package:agriconnect/src/themes.dart/theme.dart';
 import 'package:flutter/material.dart';
 
 class LsTile extends StatefulWidget {
-  const LsTile({super.key});
+  String farmName;
+  LsTile(this.farmName, {super.key});
 
   @override
   State<LsTile> createState() => _LsTileState();
 }
 
 class _LsTileState extends State<LsTile> {
+  bool isExpanded = false;
+  void _changeExpanded() {
+    setState(() {
+      isExpanded = !isExpanded;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: SizedBox(
-          child: ListTile(
-        title: Text("FarmName"),
+    return Container(
+      margin: EdgeInsets.only(bottom: 12.0),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.amber,
+          width: 1.0,
+        ),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: ListTile(
+        title: Text(widget.farmName),
         subtitle: Text("allocated"),
         tileColor: ColorSchemes.primary,
-        trailing: IconButton(
-          icon: Icon(Icons.keyboard_arrow_down),
-          onPressed: () {
-            showModalBottomSheet(
-                useSafeArea: true,
-                context: context,
-                backgroundColor: Colors.black,
-                shape: const RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.vertical(top: Radius.circular(30))),
-                barrierColor: Colors.black87.withOpacity(0.5),
-                builder: (BuildContext context) {
-                  return DropdownTable();
-                });
-          },
-        ),
-      )),
+        onTap: () {
+          showModalBottomSheet(
+              useSafeArea: true,
+              context: context,
+              backgroundColor: Colors.black,
+              shape: const RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.vertical(top: Radius.circular(30))),
+              barrierColor: Colors.black87.withOpacity(0.5),
+              builder: (BuildContext context) {
+                return DropdownTable();
+              });
+          _changeExpanded();
+        },
+      ),
     );
   }
 }

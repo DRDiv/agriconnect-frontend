@@ -80,15 +80,13 @@ final ThemeData agriculturalTheme = ThemeData(
     listTileTheme: ListTileThemeData(
         titleTextStyle: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
         subtitleTextStyle: TextStyle(
-            fontSize: 16,
-            fontStyle: FontStyle.italic,
-            color: ColorSchemes.tertiary),
+            fontSize: 16, fontStyle: FontStyle.italic, color: Colors.amber),
         contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-        iconColor: ColorSchemes.tertiary,
+        iconColor: Colors.amber,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        backgroundColor: ColorSchemes.primary,
+        backgroundColor: Color(0xFF135D5E),
         unselectedItemColor: ColorSchemes.tertiary,
-        selectedItemColor: Colors.amber[200],
+        selectedItemColor: Colors.amber,
         selectedLabelStyle:
             const TextStyle(fontSize: 14.0, fontFamily: 'Hind')));

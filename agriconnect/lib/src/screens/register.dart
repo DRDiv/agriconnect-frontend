@@ -1,4 +1,6 @@
 import 'package:agriconnect/src/constants/urls.dart';
+import 'package:agriconnect/src/models/person.dart';
+import 'package:agriconnect/src/services/authorization.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +14,9 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
-  final TextEditingController _textEditingControllerFirstName =
+  final TextEditingController _textEditingControllerName =
       TextEditingController();
-  final TextEditingController _textEditingControllerLastName =
-      TextEditingController();
+
   final TextEditingController _textEditingControllerUsername =
       TextEditingController();
   final TextEditingController _textEditingControllerMobileNumber =
@@ -29,6 +30,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _textEditingControllerBPLNumber =
       TextEditingController();
   String _selectedDocument = "";
+
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
@@ -62,22 +64,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               children: [
                                 TextFormField(
                                   decoration: InputDecoration(
-                                    labelText: "First Name",
+                                    labelText: "Name",
                                     labelStyle:
                                         Theme.of(context).textTheme.bodyMedium,
                                   ),
-                                  controller: _textEditingControllerFirstName,
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                TextFormField(
-                                  decoration: InputDecoration(
-                                    labelText: "Last Name",
-                                    labelStyle:
-                                        Theme.of(context).textTheme.bodyMedium,
-                                  ),
-                                  controller: _textEditingControllerLastName,
+                                  controller: _textEditingControllerName,
                                 ),
                                 const SizedBox(
                                   height: 10,
@@ -136,7 +127,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       _selectedDocument = newValue!;
                                     });
                                   },
-                                  items: [
+                                  items: const [
+                                    DropdownMenuItem<String>(
+                                      value: "",
+                                      child: Text("-"),
+                                    ),
                                     DropdownMenuItem<String>(
                                       value: "aadhar",
                                       child: Text("Aadhar"),
@@ -171,22 +166,61 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 const SizedBox(
                                   height: 10,
                                 ),
-                                TextFormField(
-                                  decoration: InputDecoration(
-                                    labelText: "BPL Number(if valid)",
-                                    labelStyle:
-                                        Theme.of(context).textTheme.bodyMedium,
-                                  ),
-                                  controller: _textEditingControllerBPLNumber,
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
                                 SizedBox(
                                   width: width * 0.75,
                                   child: ElevatedButton(
-                                    onPressed: () {
-                                      // Handle button press
+                                    onPressed: () async {
+                                      if (_textEditingControllerName
+                                              .text.isEmpty ||
+                                          _textEditingControllerUsername
+                                              .text.isEmpty ||
+                                          _textEditingControllerMobileNumber
+                                              .text.isEmpty ||
+                                          _textEditingControllerCreatePassword
+                                              .text.isEmpty ||
+                                          _textEditingControllerConfirmPassword
+                                              .text.isEmpty ||
+                                          _selectedDocument == "" ||
+                                          _textEditingControllerIdentityNumber
+                                              .text.isEmpty) {
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content: Text(
+                                                "Please fill in all the required fields."),
+                                            backgroundColor: Colors.red,
+                                          ),
+                                        );
+                                        return;
+                                      }
+
+                                      if (_textEditingControllerCreatePassword
+                                              .text !=
+                                          _textEditingControllerConfirmPassword
+                                              .text) {
+                                        // Display an error message for password mismatch.
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
+                                          SnackBar(
+                                            content:
+                                                Text("Passwords do not match."),
+                                            backgroundColor: Colors.red,
+                                          ),
+                                        );
+                                        return;
+                                      }
+                                      Person person = Person(
+                                        _textEditingControllerUsername.text,
+                                        _textEditingControllerName.text,
+                                        _textEditingControllerMobileNumber.text,
+                                        _textEditingControllerIdentityNumber
+                                            .text,
+                                        _selectedDocument,
+                                      );
+                                      await register(
+                                          person,
+                                          _textEditingControllerConfirmPassword
+                                              .text);
                                     },
                                     child: const Text("Confirm"),
                                   ),
