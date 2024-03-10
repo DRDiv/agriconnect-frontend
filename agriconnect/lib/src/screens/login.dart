@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Map<String, dynamic> requestData = {
                               'username': 'hello',
                             };
-                            print(Urls.createPerson);
+
                             dio.post(Urls.createPerson, data: requestData);
                           },
                           child: const Text("Confirm"))),

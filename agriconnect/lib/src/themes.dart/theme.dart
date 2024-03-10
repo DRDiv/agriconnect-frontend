@@ -20,6 +20,7 @@ final ThemeData agriculturalTheme = ThemeData(
       fontWeight: FontWeight.bold,
     ),
   ),
+  textSelectionTheme: TextSelectionThemeData(cursorColor: ColorSchemes.primary),
   textTheme: TextTheme(
     bodyLarge: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
     bodyMedium: TextStyle(fontSize: 18.0, fontStyle: FontStyle.italic),
@@ -31,25 +32,27 @@ final ThemeData agriculturalTheme = ThemeData(
     textTheme: ButtonTextTheme.primary,
   ),
   inputDecorationTheme: InputDecorationTheme(
-    filled: true,
-    fillColor: ColorSchemes.background,
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(10.0),
-    ),
-    focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: ColorSchemes.primary),
-      borderRadius: BorderRadius.circular(10.0),
-    ),
-    errorBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.red),
-      borderRadius: BorderRadius.circular(10.0),
-    ),
-    focusedErrorBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.red),
-      borderRadius: BorderRadius.circular(10.0),
-    ),
-    labelStyle: TextStyle(color: ColorSchemes.primary),
-  ),
+      filled: true,
+      focusColor: ColorSchemes.primary,
+      fillColor: ColorSchemes.background,
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: ColorSchemes.primary),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.red),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      focusedErrorBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.red),
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      labelStyle: TextStyle(color: ColorSchemes.primary),
+      iconColor: ColorSchemes.primary,
+      hoverColor: ColorSchemes.primary),
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
           foregroundColor: Colors.white,
@@ -57,4 +60,20 @@ final ThemeData agriculturalTheme = ThemeData(
           elevation: 8.0,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)))),
+  dialogTheme: DialogTheme(
+    backgroundColor: Color.fromARGB(255, 218, 165, 128),
+    titleTextStyle: TextStyle(
+      color: ColorSchemes.primary,
+      fontSize: 20.0,
+      fontWeight: FontWeight.bold,
+    ),
+    contentTextStyle: TextStyle(
+      color: ColorSchemes.primary,
+      fontSize: 16.0,
+    ),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    actionsPadding: EdgeInsets.symmetric(horizontal: 16.0),
+  ),
 );
