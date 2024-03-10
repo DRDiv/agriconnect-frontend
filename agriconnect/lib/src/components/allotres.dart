@@ -12,10 +12,16 @@ class AllotResourcesAlertDialog extends StatefulWidget {
 class _AllotResourcesAlertDialogState extends State<AllotResourcesAlertDialog> {
   final TextEditingController textController1 = TextEditingController();
   final TextEditingController textController2 = TextEditingController();
-  String selectedValueCrop = 'farm';
-  String selectedValueAuthority = 'farm';
-  List<String> dataCrop = ['farm', 'farm2'];
-  List<String> dataAuthority = ['farm', 'farm2'];
+  String selectedValueCrop = 'CLICK TO SELECT';
+  String selectedValueAuthority = 'CLICK TO SELECT';
+  List<String> dataCrop = ['CLICK TO SELECT', 'wheat', 'maize', 'bajra'];
+  List<String> dataAuthority = [
+    'CLICK TO SELECT',
+    'farm1',
+    'farm2',
+    'Patwari Shahpur',
+    'Patwari Bhadupur'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -27,29 +33,25 @@ class _AllotResourcesAlertDialogState extends State<AllotResourcesAlertDialog> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           _biuldDropDownButton('Crop', width, selectedValueCrop, dataCrop),
-          _buildTextField('Left Over', textController1, width),
+          _buildTextField('Allot Qty', textController1, width),
           _biuldDropDownButton(
               "Authority/Farm", width, selectedValueAuthority, dataAuthority)
         ],
       ),
       actions: <Widget>[
-        TextButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          child: Text('Cancel'),
-        ),
-        ElevatedButton(
-          onPressed: () {
-            String value1 = textController1.text;
-            String value2 = textController2.text;
+        Center(
+          child: ElevatedButton(
+            onPressed: () {
+              String value1 = textController1.text;
+              String value2 = textController2.text;
 
-            print('Text Field 1: $value1');
-            print('Text Field 2: $value2');
+              print('Text Field 1: $value1');
+              print('Text Field 2: $value2');
 
-            Navigator.of(context).pop();
-          },
-          child: Text('Submit'),
+              Navigator.of(context).pop();
+            },
+            child: Text('Submit'),
+          ),
         ),
       ],
     );
@@ -63,7 +65,7 @@ class _AllotResourcesAlertDialogState extends State<AllotResourcesAlertDialog> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            width: width * 0.3,
+            width: width * 0.2,
             child: Center(
               child: Text(
                 labelText,
@@ -75,12 +77,13 @@ class _AllotResourcesAlertDialogState extends State<AllotResourcesAlertDialog> {
             ),
           ),
           SizedBox(
-            width: width * 0.2,
+            width: width * 0.4,
+            height: 30,
             child: TextField(
               keyboardType: TextInputType.number,
               controller: controller,
               decoration: InputDecoration(
-                hintText: 'Enter $labelText',
+                hintText: 'Enter Qty',
               ),
             ),
           ),
@@ -97,7 +100,7 @@ class _AllotResourcesAlertDialogState extends State<AllotResourcesAlertDialog> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            width: width * 0.3,
+            width: width * 0.2,
             child: Center(
               child: Text(
                 labelText,
@@ -109,7 +112,7 @@ class _AllotResourcesAlertDialogState extends State<AllotResourcesAlertDialog> {
             ),
           ),
           SizedBox(
-            width: width * 0.2,
+            width: width * 0.4,
             child: DropdownButton(
                 value: selectedValue,
                 isExpanded: true,

@@ -1,3 +1,4 @@
+import 'package:agriconnect/src/components/allotres.dart';
 import 'package:agriconnect/src/components/bottomnav.dart';
 import 'package:agriconnect/src/components/resourcestable.dart';
 import 'package:agriconnect/src/constants/urls.dart';
@@ -18,7 +19,11 @@ class AuthorityScreen extends StatefulWidget {
 class _AuthorityScreenState extends State<AuthorityScreen> {
   TextEditingController _inputController = TextEditingController();
   String selectedValue = 'CLICK TO VIEW';
-  List<String> data1 = ['CLICK TO VIEW', 'farm1'];
+  List<String> data = ['CLICK TO VIEW', 'farm1', 'farm2'];
+  String selectedValue1 = 'CLICK TO VIEW';
+  List<String> data1 = ['CLICK TO VIEW', 'DC Jaipur', 'DC Anmolpur'];
+  String selectedValue2 = 'CLICK TO VIEW';
+  List<String> data2 = ['CLICK TO VIEW', 'wheat', 'maize', 'bajra'];
   String _selectedOption = '';
 
   @override
@@ -76,7 +81,11 @@ class _AuthorityScreenState extends State<AuthorityScreen> {
               },
             );
           },
-          icon: const Icon(Icons.settings),
+          icon: const Icon(
+            Icons.settings,
+            color: Colors.white,
+            size: 30,
+          ),
         ),
       ]),
       backgroundColor: Colors.white,
@@ -95,7 +104,7 @@ class _AuthorityScreenState extends State<AuthorityScreen> {
                     SizedBox(
                       width: width * 0.45,
                       child: Text(
-                        "Farm under me",
+                        "Farm Under Me",
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
                     ),
@@ -117,7 +126,7 @@ class _AuthorityScreenState extends State<AuthorityScreen> {
                               height: 2,
                               color: Colors.lightGreen,
                             ),
-                            items: data1
+                            items: data
                                 .map<DropdownMenuItem<String>>((String value) {
                               return DropdownMenuItem<String>(
                                 value: value,
@@ -149,7 +158,7 @@ class _AuthorityScreenState extends State<AuthorityScreen> {
                             color: Colors.white70,
                             borderRadius: BorderRadius.circular(15)),
                         child: DropdownButton(
-                            value: selectedValue,
+                            value: selectedValue1,
                             isExpanded: true,
                             iconSize: 50.0,
                             style: TextStyle(color: Colors.black),
@@ -190,7 +199,7 @@ class _AuthorityScreenState extends State<AuthorityScreen> {
                             color: Colors.white70,
                             borderRadius: BorderRadius.circular(15)),
                         child: DropdownButton(
-                          value: selectedValue,
+                          value: selectedValue2,
                           isExpanded: true,
                           dropdownColor: Colors.white,
                           iconSize: 50.0,
@@ -215,7 +224,7 @@ class _AuthorityScreenState extends State<AuthorityScreen> {
                             height: 2,
                             color: Colors.lightGreen,
                           ),
-                          items: data1
+                          items: data2
                               .map<DropdownMenuItem<String>>((String value) {
                             return DropdownMenuItem<String>(
                               value: value,
@@ -231,7 +240,14 @@ class _AuthorityScreenState extends State<AuthorityScreen> {
               SizedBox(
                 width: width * 0.7,
                 child: ElevatedButton(
-                    onPressed: () {}, child: const Text("Allot resources")),
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return AllotResourcesAlertDialog();
+                          });
+                    },
+                    child: const Text("Allot Resources")),
               )
             ],
           ),

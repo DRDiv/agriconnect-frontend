@@ -9,6 +9,10 @@ class MandiScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color(0xFF135D5E),
+        title: Text('MANDIS NEAR YOU'),
+      ),
       bottomNavigationBar: BottomNav(1),
       body: Container(
         decoration: BoxDecoration(color: ColorSchemes.background),

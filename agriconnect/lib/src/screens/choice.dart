@@ -116,7 +116,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                           });
                     },
                     child: Text(
-                      'Click to Enter Referral code',
+                      'Click to Enter Referral Code',
                       style: Theme.of(context)
                           .textTheme
                           .bodySmall!
