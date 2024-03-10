@@ -84,7 +84,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ],
         ),
       ]),
-      bottomNavigationBar: BottomNav(),
     );
   }
 }

@@ -10,13 +10,6 @@ class LsTile extends StatefulWidget {
 }
 
 class _LsTileState extends State<LsTile> {
-  bool isExpanded = false;
-  void _changeExpanded() {
-    setState(() {
-      isExpanded = !isExpanded;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -42,7 +35,6 @@ class _LsTileState extends State<LsTile> {
                 builder: (BuildContext context) {
                   return DropdownTable();
                 });
-            _changeExpanded();
           },
         ),
       )),
