@@ -26,15 +26,20 @@ class _LsTileState extends State<LsTile> {
       margin: EdgeInsets.only(bottom: 12.0),
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.amber,
+          color: Colors.black,
           width: 1.0,
         ),
         borderRadius: BorderRadius.circular(15),
       ),
       child: ListTile(
-        title: Text(widget.farmName),
-        subtitle: Text("allocated"),
-        tileColor: ColorSchemes.primary,
+        title: Text(
+          widget.farmName,
+          style: TextStyle(color: Colors.black),
+        ),
+        subtitle: Text(
+          "allocated",
+          style: TextStyle(color: Colors.grey),
+        ),
         onTap: () {
           showModalBottomSheet(
               useSafeArea: true,

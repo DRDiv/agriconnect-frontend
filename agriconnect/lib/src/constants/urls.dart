@@ -13,4 +13,6 @@ class Urls {
   static String getFarms(String personId) {
     return host + 'farmers/' + personId + '/get_farms/';
   }
+
+  static String generateCode = host + 'authorities/generate_referral_code/';
 }

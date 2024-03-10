@@ -27,8 +27,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       TextEditingController();
   final TextEditingController _textEditingControllerIdentityNumber =
       TextEditingController();
-  final TextEditingController _textEditingControllerBPLNumber =
-      TextEditingController();
+
   String _selectedDocument = "";
 
   @override

@@ -18,9 +18,9 @@ class _BottomNavState extends State<BottomNav> {
 
     switch (index) {
       case 0:
-        goRouter.go('/farmer');
+        goRouter.push('/farmer');
       case 1:
-        goRouter.go('/mandi');
+        goRouter.push('/mandi');
     }
   }
 

@@ -1,6 +1,7 @@
 import 'package:agriconnect/src/components/bottomnav.dart';
 import 'package:agriconnect/src/components/lstile.dart';
 import 'package:agriconnect/src/states/state.dart';
+import 'package:agriconnect/src/themes.dart/theme.dart';
 import 'package:flutter/material.dart';
 
 class FarmerScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _FarmerScreenState extends State<FarmerScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNav(0),
-      appBar: AppBar(backgroundColor: Color(0xFF20A27C), actions: [
+      appBar: AppBar(backgroundColor: Color(0xFF135D5E), actions: [
         IconButton(
           onPressed: () {
             showDialog(
@@ -65,12 +66,6 @@ class _FarmerScreenState extends State<FarmerScreen> {
           width: double.infinity,
           height: double.infinity,
           padding: EdgeInsets.all(16.0),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/image_2.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
           child: (DataFarm.length == 0)
               ? Center(
                   child: Text(

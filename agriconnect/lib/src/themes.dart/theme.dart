@@ -82,7 +82,7 @@ final ThemeData agriculturalTheme = ThemeData(
         subtitleTextStyle: TextStyle(
             fontSize: 16, fontStyle: FontStyle.italic, color: Colors.amber),
         contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-        iconColor: Colors.amber,
+        iconColor: Colors.black,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15))),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: Color(0xFF135D5E),

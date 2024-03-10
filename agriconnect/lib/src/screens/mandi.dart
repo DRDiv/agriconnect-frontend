@@ -11,7 +11,7 @@ class MandiScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: BottomNav(1),
       body: Container(
-        decoration: BoxDecoration(color: ColorSchemes.tertiary),
+        decoration: BoxDecoration(color: ColorSchemes.background),
         child: Center(
           child: Image.asset(
             'assets/mandi.png',
