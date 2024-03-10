@@ -1,5 +1,6 @@
 import 'package:agriconnect/src/components/bottomnav.dart';
 import 'package:agriconnect/src/components/lstile.dart';
+import 'package:agriconnect/src/states/state.dart';
 import 'package:flutter/material.dart';
 
 class FarmerScreen extends StatefulWidget {
@@ -11,10 +12,7 @@ class FarmerScreen extends StatefulWidget {
 
 class _FarmerScreenState extends State<FarmerScreen> {
   TextEditingController _inputController = TextEditingController();
-  List DataFarm = [
-    'farm1',
-    'farm2',
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,12 +71,22 @@ class _FarmerScreenState extends State<FarmerScreen> {
               fit: BoxFit.cover,
             ),
           ),
-          child: ListView.builder(
-            itemCount: DataFarm.length,
-            itemBuilder: (context, index) {
-              return LsTile(DataFarm[index]);
-            },
-          )),
+          child: (DataFarm.length == 0)
+              ? Center(
+                  child: Text(
+                  'No Farms Found',
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyLarge!
+                      .copyWith(color: Colors.amber),
+                ))
+              : ListView.builder(
+                  itemCount: DataFarm.length,
+                  itemBuilder: (context, index) {
+                    print(DataFarm);
+                    return LsTile('farm ' + DataFarm[index]['id'].toString());
+                  },
+                )),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:agriconnect/src/components/bottomnav.dart';
 import 'package:agriconnect/src/constants/urls.dart';
+import 'package:agriconnect/src/services/authorization.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -58,7 +59,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                       width: width * 0.75,
                       child: ElevatedButton(
-                          onPressed: () {}, child: const Text("Confirm"))),
+                          onPressed: () async {
+                            String resp = await login(
+                                _textEditingControllerUserID.text,
+                                _textEditingControllerPassword.text);
+
+                            if (resp == "Successful") {
+                              context.go('/choice');
+                            }
+                          },
+                          child: const Text("Confirm"))),
                 ]),
               ),
             )),
