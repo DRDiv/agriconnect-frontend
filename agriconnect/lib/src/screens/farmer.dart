@@ -1,3 +1,5 @@
+import 'package:agriconnect/src/components/bottomnav.dart';
+import 'package:agriconnect/src/components/lstile.dart';
 import 'package:flutter/material.dart';
 
 class FarmerScreen extends StatefulWidget {
@@ -9,10 +11,15 @@ class FarmerScreen extends StatefulWidget {
 
 class _FarmerScreenState extends State<FarmerScreen> {
   TextEditingController _inputController = TextEditingController();
+  List DataFarm = [
+    'farm1',
+    'farm2',
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(actions: [
+      bottomNavigationBar: BottomNav(0),
+      appBar: AppBar(backgroundColor: Color(0xFF20A27C), actions: [
         IconButton(
           onPressed: () {
             showDialog(
@@ -39,8 +46,6 @@ class _FarmerScreenState extends State<FarmerScreen> {
                       SizedBox(height: 10),
                       ElevatedButton(
                         onPressed: () {
-                          String inputValue = _inputController.text;
-
                           Navigator.pop(context);
                         },
                         child: Text('Submit'),
@@ -51,9 +56,29 @@ class _FarmerScreenState extends State<FarmerScreen> {
               },
             );
           },
-          icon: const Icon(Icons.settings),
+          icon: const Icon(
+            Icons.settings,
+            color: Colors.white,
+            size: 30,
+          ),
         ),
       ]),
+      body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          padding: EdgeInsets.all(16.0),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/image_2.png'),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: ListView.builder(
+            itemCount: DataFarm.length,
+            itemBuilder: (context, index) {
+              return LsTile(DataFarm[index]);
+            },
+          )),
     );
   }
 }

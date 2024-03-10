@@ -1,24 +1,26 @@
+import 'package:agriconnect/src/routing/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class BottomNav extends StatefulWidget {
-  const BottomNav({super.key});
+  int selectedIndex;
+  BottomNav(this.selectedIndex);
 
   @override
   State<BottomNav> createState() => _BottomNavState();
 }
 
 class _BottomNavState extends State<BottomNav> {
-  int _selectedIndex = 0;
-
   void _changeIndex(int index) {
     setState(() {
-      _selectedIndex = index;
+      widget.selectedIndex = index;
     });
 
     switch (index) {
       case 0:
-        {}
+        goRouter.go('/farmer');
+      case 1:
+        goRouter.go('/mandi');
     }
   }
 
@@ -34,7 +36,7 @@ class _BottomNavState extends State<BottomNav> {
           BottomNavigationBarItem(
               icon: Icon(Icons.info_outlined), label: "Info")
         ],
-        currentIndex: _selectedIndex,
+        currentIndex: widget.selectedIndex,
         onTap: _changeIndex,
       ),
     );

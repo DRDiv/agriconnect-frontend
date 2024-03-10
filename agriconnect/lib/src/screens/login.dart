@@ -58,15 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                       width: width * 0.75,
                       child: ElevatedButton(
-                          onPressed: () {
-                            Dio dio = Dio();
-                            Map<String, dynamic> requestData = {
-                              'username': 'hello',
-                            };
-
-                            dio.post(Urls.createPerson, data: requestData);
-                          },
-                          child: const Text("Confirm"))),
+                          onPressed: () {}, child: const Text("Confirm"))),
                 ]),
               ),
             )),
@@ -84,7 +76,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ],
         ),
       ]),
-      bottomNavigationBar: BottomNav(),
+      // bottomNavigationBar: BottomNav(),
     );
   }
 }
